@@ -1,0 +1,65 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "text": "Welcome to Jungle Expedition! Do you want to play?",
+      "score": 0,
+      "answer": {
+        "yes": 2,
+        "no": 3
+      }
+    },
+    {
+      "id": 2,
+      "score": 0,
+      "text": "You are traveling down a river in a boat to a rest stop. There is a fork in the river. Do you take a left (yes) or right (no)?",
+      "answer": {
+        "yes": 4,
+        "no": 5
+      }
+    },
+    {
+      "id": 3,
+      "score": -30,
+      "text": "That's not funny"
+    },
+    {
+      "id": 4,
+      "score": 1,
+      "text": "Taking a left on the river leads to a muddy section with a tree blocking your path. Do you get into the water to remove the tree?",
+      "answer": {
+        "yes": 6,
+        "no": 7
+      }
+    },
+    {
+      "id": 5,
+      "score": 0,
+      "text": "Taking a right on the river leads to a crocodile pit. Will you fight the crocodiles?",
+      "answer": {
+        "yes": 8,
+        "no": 9
+      }
+    },
+    {
+      "id": 6,
+      "score": 1,
+      "text": "You take some time to remove the tree, but eventually, it pays off as the path leads straight to the rest point. <YOU WIN>"
+    },
+    {
+      "id": 7,
+      "score": 0,
+      "text": "Waiting for aid in removing the tree leads to mass starvation. <THE END>"
+    },
+    {
+      "id": 8,
+      "score": 0,
+      "text": "You are eaten by the crocodiles. <THE END>"
+    },
+    {
+      "id": 9,
+      "score": 0,
+      "text": "You are eaten by crocodiles. <THE END>"
+    }
+  ]
+}
