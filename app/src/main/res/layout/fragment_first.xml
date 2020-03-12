@@ -13,6 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:textColor="#FFFFFF"
         />
     <TextView
         android:id="@+id/Text3"
@@ -22,6 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/Text2"
+        android:textColor="#FFFFFF"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

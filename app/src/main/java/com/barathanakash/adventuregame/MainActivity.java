@@ -3,7 +3,6 @@ package com.barathanakash.adventuregame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import java.io.IOException;
@@ -40,9 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         Gson gson = new Gson();
         final Story story = gson.fromJson(loadJSONFromAsset(), Story.class);
-        System.out.println("oof"+story);
         displayText=findViewById(R.id.Text);
-//FIX PROBLEM OF CUMULATIVE HIGH SCORE
         final Questions[] q = story.getQuestions();
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 score = score+q[x].getScore();
                 if(score>hscore){
                     hscore=score;
+                }
+                if(hscore>45){
+                    editor.remove("idTV1");
+                    hscore=0;
+                    editor.apply();
                 }
                 editor.putInt("idTV1", hscore);
                 editor.apply();
@@ -70,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
                 score = score+q[x].getScore();
                 if(score>hscore){
                     hscore=score;
+                }
+                if(hscore>45){
+                    editor.clear();
+                    editor.commit();
                 }
                 editor.putInt("idTV1", hscore);
                 editor.apply();
