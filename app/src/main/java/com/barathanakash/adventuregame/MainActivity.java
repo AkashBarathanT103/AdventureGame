@@ -8,43 +8,55 @@ import android.view.View;
 
 import java.io.IOException;
 import java.io.InputStream;
+import android.content.SharedPreferences;
 
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
-
-import android.os.Bundle;
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.view.Menu;
-import android.widget.ListView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity {
     Button yes;
     Button no;
+    TextView playerScore;
+    TextView highScore;
     int x = 0;
     TextView displayText;
+    int score;
+    int hscore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         yes=findViewById(R.id.yesButton);
         no=findViewById(R.id.noButton);
+        playerScore=findViewById(R.id.Text2);
+        highScore=findViewById(R.id.Text3);
+        final SharedPreferences sharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE);
+        hscore=sharedPreferences.getInt("idTV1", hscore);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+
+
         Gson gson = new Gson();
         final Story story = gson.fromJson(loadJSONFromAsset(), Story.class);
         System.out.println("oof"+story);
         displayText=findViewById(R.id.Text);
+//FIX PROBLEM OF CUMULATIVE HIGH SCORE
         final Questions[] q = story.getQuestions();
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int y = q[x].getAnswer().getYes();
+                score = score+q[x].getScore();
+                if(score>hscore){
+                    hscore=score;
+                }
+                editor.putInt("idTV1", hscore);
+                editor.apply();
+
+                playerScore.setText("Player Score: "+score);
+                highScore.setText("High Score: "+sharedPreferences.getInt("idTV1",hscore));
                 String s = q[y-1].getText();
                 x=y-1;
                 displayText.setText(s);
@@ -55,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int a = q[x].getAnswer().getNo();
+                score = score+q[x].getScore();
+                if(score>hscore){
+                    hscore=score;
+                }
+                editor.putInt("idTV1", hscore);
+                editor.apply();
+                playerScore.setText("Player Score: "+score);
+                highScore.setText("High Score: "+sharedPreferences.getInt("idTV1",hscore));
                 String s = q[a-1].getText();
                 x=a-1;
                 displayText.setText(s);

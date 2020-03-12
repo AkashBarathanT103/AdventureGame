@@ -21,11 +21,15 @@
     {
       "id": 3,
       "score": -30,
-      "text": "That's not funny"
+      "text": "That's not funny",
+      "answer": {
+        "yes": 1,
+        "no": 1
+      }
     },
     {
       "id": 4,
-      "score": 1,
+      "score": 15,
       "text": "Taking a left on the river leads to a muddy section with a tree blocking your path. Do you get into the water to remove the tree?",
       "answer": {
         "yes": 6,
@@ -43,23 +47,40 @@
     },
     {
       "id": 6,
-      "score": 1,
-      "text": "You take some time to remove the tree, but eventually, it pays off as the path leads straight to the rest point. <YOU WIN>"
+      "score": 30,
+      "text": "You take some time to remove the tree, but eventually, it pays off as the path leads straight to the rest point. <YOU WIN>",
+      "answer": {
+        "yes": 1,
+        "no": 1
+      }
     },
     {
       "id": 7,
       "score": 0,
-      "text": "Waiting for aid in removing the tree leads to mass starvation. <THE END>"
+      "text": "Waiting for aid in removing the tree leads to mass starvation. <THE END>",
+      "answer": {
+        "yes": 1,
+        "no": 1
+      }
     },
     {
       "id": 8,
       "score": 0,
-      "text": "You are eaten by the crocodiles. <THE END>"
+      "text": "You are eaten by the crocodiles. <THE END>",
+      "answer": {
+        "yes": 1,
+        "no": 1
+      }
     },
     {
       "id": 9,
       "score": 0,
-      "text": "You are eaten by crocodiles. <THE END>"
+      "text": "You are eaten by crocodiles. <THE END>",
+      "answer": {
+        "yes": 1,
+        "no": 1
+      }
+
     }
   ]
 }
